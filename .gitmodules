@@ -1,0 +1,6 @@
+[submodule "ui"]
+	path = ui
+	url = git@github.com:bxsang/DormitoryManager-ui.git
+[submodule "api"]
+	path = api
+	url = git@github.com:bxsang/DormitoryManager-api.git
