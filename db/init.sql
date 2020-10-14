@@ -1,13 +1,13 @@
 USE `dormitory`;
 
 CREATE TABLE Employees (
-    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    name VARCHAR(100),
-    email VARCHAR(100),
-    username VARCHAR(100),
-    password VARCHAR(100),
-    role VARCHAR(100),
-    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  name VARCHAR(100),
+  email VARCHAR(100),
+  username VARCHAR(100),
+  password VARCHAR(100),
+  role VARCHAR(100),
+  created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE Students (
