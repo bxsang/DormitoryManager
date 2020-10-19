@@ -13,6 +13,7 @@ CREATE TABLE Employees (
 CREATE TABLE Students (
   id VARCHAR(10) NOT NULL PRIMARY KEY,
   name VARCHAR(100),
+  year INT,
   password VARCHAR(100),
   hometown VARCHAR(100),
   nationality VARCHAR(10),
@@ -49,7 +50,7 @@ CREATE TABLE RoomArrangements (
 );
 
 INSERT INTO `Employees` (`id`, `name`, `email`, `username`, `password`, `role`, `created_date`) VALUES (NULL, 'Bui Xuan Sang', 'xsang.bui@gmail.com', 'bxsang', 'e10adc3949ba59abbe56e057f20f883e', 'admin', current_timestamp());
-INSERT INTO `Students` (`id`, `name`, `password`, `hometown`, `nationality`, `faculty`, `created_date`) VALUES ('51800918', 'Bui Xuan Sang', 'e10adc3949ba59abbe56e057f20f883e', 'Lam Dong', 'VN', 'CNTT', current_timestamp());
+INSERT INTO `Students` (`id`, `name`, `year`, `password`, `hometown`, `nationality`, `faculty`, `created_date`) VALUES ('51800918', 'Bui Xuan Sang', 2018, 'e10adc3949ba59abbe56e057f20f883e', 'Lam Dong', 'VN', 'CNTT', current_timestamp());
 INSERT INTO `Semeters` (`name`) VALUES ('HK1 2020-2021'), ('HK2 2020-2021'); 
 INSERT INTO `Building` (`name`) VALUES ('H'), ('I'), ('K'), ('L'); 
 INSERT INTO `Rooms` (`name`, `capacity`, `building_name`) VALUES ('H.0100', '8', 'H'), ('I.0100', '8', 'I'), ('K.0100', '6', 'K'), ('L.0100', '6', 'L');
