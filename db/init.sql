@@ -67,6 +67,42 @@ CREATE TABLE Violations (
   FOREIGN KEY (employee_id) REFERENCES Employees(id)
 );
 
+CREATE TABLE DotThuTien (
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  name VARCHAR(100),
+  date_created DATE,
+  semeter_name VARCHAR(100),
+  FOREIGN KEY (semeter_name) REFERENCES Semeters(name)
+);
+
+CREATE TABLE GiaDienNuoc (
+  dien FLOAT,
+  nuoc FLOAT
+);
+
+CREATE TABLE DienNuoc (
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  room_name VARCHAR(10),
+  date DATE,
+  semeter_name VARCHAR(100),
+  water INT,
+  electricity INT,
+  dot_id INT,
+  FOREIGN KEY (room_name) REFERENCES Rooms(name),
+  FOREIGN KEY (semeter_name) REFERENCES Semeters(name),
+  FOREIGN KEY (dot_id) REFERENCES DotThuTien(id)
+);
+
+CREATE TABLE NopTien (
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  so_tien FLOAT,
+  trang_thai BOOLEAN,
+  dot_id INT,
+  student_id VARCHAR(10) NOT NULL,
+  FOREIGN KEY (dot_id) REFERENCES DotThuTien(id),
+  FOREIGN KEY (student_id) REFERENCES Students(id)
+);
+
 INSERT INTO `Employees` (`id`, `name`, `email`, `username`, `password`, `role`, `created_date`) VALUES (NULL, 'Bui Xuan Sang', 'xsang.bui@gmail.com', 'bxsang', 'e10adc3949ba59abbe56e057f20f883e', 'admin', current_timestamp());
 INSERT INTO `Students` (`id`, `name`, `year`, `password`, `hometown`, `nationality`, `faculty`, `created_date`) VALUES ('51800918', 'Bui Xuan Sang', 2018, 'e10adc3949ba59abbe56e057f20f883e', 'Lam Dong', 'VN', 'CNTT', current_timestamp());
 INSERT INTO `Semeters` (`name`) VALUES ('HK1 2020-2021'), ('HK2 2020-2021'); 
@@ -75,3 +111,7 @@ INSERT INTO `Rooms` (`name`, `capacity`, `building_name`) VALUES ('H.0100', '8',
 INSERT INTO `RoomArrangements` (`id`, `semeter_name`, `student_id`, `room_name`, `assigned_time`, `assigned_employee`) VALUES (NULL, 'HK1 2020-2021', '51800000', 'I.0100', current_timestamp(), '1');
 INSERT INTO `Attendance` (`date`, `status`, `student_id`) VALUES ('2020-10-20', '1', '51800000');
 INSERT INTO `Violations` (`id`, `message`, `student_id`, `semeter_name`, `employee_id`) VALUES (NULL, 'Khong truc phong', '51800000', 'HK1 2020-2021', '1');
+INSERT INTO `DotThuTien` (`id`, `name`, `date_created`, `semeter_name`) VALUES (NULL, 'Điện nước HK1-2020/2021', '2020-10-22', 'HK1 2020-2021');
+INSERT INTO `GiaDienNuoc` (`dien`, `nuoc`) VALUES ('1.678', '12.900');
+INSERT INTO `DienNuoc` (`id`, `room_name`, `date`, `semeter_name`, `water`, `electricity`, `dot_id`) VALUES (NULL, 'I.0002', '2020-10-22', 'HK1 2020-2021', '10', '10', '1');
+INSERT INTO `NopTien` (`id`, `so_tien`, `trang_thai`, `dot_id`, `student_id`) VALUES (NULL, '145.78', '0', '1', '51800000');
